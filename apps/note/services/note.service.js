@@ -6,12 +6,11 @@ export const noteService = {
     remove
 }
 
-//**** VARIABLES: *********************************************//
+// VARIABLES
 const KEY = 'notesDB'
 const gNotes = []
 
-//**** FUNCTIONS: *********************************************//
-
+// FUNCTIONS
 function query() {
     let notes = _loadFromStorage()
     if (!notes) {
@@ -35,7 +34,6 @@ function remove(noteId) {
     _saveToStorage(notes)
     return Promise.resolve()
 }
-
 
 //**** INTERNAL FUNCTIONS: ************************************//
 
