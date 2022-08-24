@@ -1,10 +1,17 @@
+import { MailPreview } from './mail-preview.jsx'
 
-
-export function MailList(sortedMails) {
+export function MailList({ mails }) {
     return <section className="mail-list">
         <div className="mail-container">
-        </div>
-        {/* TODO thead position sticky */}
+            {/* <pre>{JSON.stringify(mails, null, 2)}</pre> */}
 
-    </section>
+            {mails.map(mail => <MailPreview
+                key={mail.id}
+                isReadClass={mail.isRead ? '' : 'unread-mail'}
+                subject={mail.subject}
+                body={mail.body}
+
+            />)}
+        </div>
+    </section >
 }

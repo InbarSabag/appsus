@@ -4,8 +4,7 @@ import { LoadingSpinner } from "../../../cmps/spinner.jsx";
 
 export class MailIndex extends React.Component {
     state = {
-        mail: null,
-        filterBy: null,
+        mails: [],
     }
 
     componentDidMount() {
@@ -13,21 +12,17 @@ export class MailIndex extends React.Component {
     }
 
     loadMails = () => {
-        mailService.query(this.state.filterBy)
-        .then((mails) => {
-            this.setState({ mails })
-        })
+        mailService.query()
+            .then(mails => this.setState({ mails }))
     }
 
     render() {
         const { mails } = this.state
         if (!mails) return <LoadingSpinner />
         return <section className="mail-index">
-
             <MailList
-             mails = {mails}
+                mails={mails}
             />
-          
         </section>
     }
 }
