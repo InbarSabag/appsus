@@ -1,4 +1,3 @@
-import { UserMsg } from './user-msg.jsx'
 const { Link, NavLink, withRouter } = ReactRouterDOM
 
 export function AppHeader() {
@@ -12,7 +11,6 @@ export function AppHeader() {
             <NavLink to="/mail">Mail</NavLink>
             <NavLink to="/note">Note</NavLink>
         </nav>
-        <UserMsg />
     </header>
 }
 
