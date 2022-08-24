@@ -1,0 +1,31 @@
+/* Lato */
+@font-face {
+    font-family: lato-black;
+    src: url(../../fonts/lato/Lato-Black.ttf);
+}
+@font-face {
+    font-family: lato-bold;
+    src: url(../../fonts/lato/Lato-Bold.ttf);
+}
+@font-face {
+    font-family: lato-light;
+    src: url(../../fonts/lato/Lato-Light.ttf);
+}
+@font-face {
+    font-family: lato-thin;
+    src: url(../../fonts/lato/Lato-Thin.ttf);
+}
+/* Font-Awesome */
+@font-face {
+    font-family: fa-brands;
+    src: url(../../fonts/font-awesome/fa-brands-400.ttf);
+}
+
+@font-face {
+    font-family: fa-solid;
+    src: url(../../fonts/font-awesome/fa-solid-900.ttf);
+}
+@font-face {
+    font-family: fa-regular;
+    src: url(../../fonts/font-awesome/fa-regular-400.woff2)
+}
