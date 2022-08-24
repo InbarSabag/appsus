@@ -1,1 +1,8 @@
-//  ? need this file?
+
+
+export class NoteSidebar extends React.Component {
+
+render(){
+return 
+}
+}

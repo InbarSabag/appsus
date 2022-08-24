@@ -1,21 +1,27 @@
 import { storageService } from "../../../services/storage.service"
+import { utilService } from "../../../services/util.service"
 
 export const noteService = {
     query,
     getById,
-    remove
+    remove,
+    createNote,
+    getNoteIdx,
+    onArchiveNote,
+    onRecycleBinNote
 }
 
 //**** VARIABLES: *********************************************//
+
 const KEY = 'notesDB'
-const gNotes = []
+
 
 //**** FUNCTIONS: *********************************************//
 
 function query() {
     let notes = _loadFromStorage()
     if (!notes) {
-        notes = gNotes
+        notes = _createNotes
         _saveToStorage(notes)
     }
 
@@ -29,6 +35,11 @@ function getById(noteId) {
     return Promise.resolve(note)
 }
 
+function getNoteIdx(noteId){
+    const notes = _loadFromStorage()
+    return notes.findIdx(note => note.id === noteId)
+}
+
 function remove(noteId) {
     let notes = _loadFromStorage()
     notes = notes.filter(note => note.id !== noteId)
@@ -36,11 +47,41 @@ function remove(noteId) {
     return Promise.resolve()
 }
 
+function createNote(type, title, info, style){
+    let notes = _loadFromStorage()
+    let note={
+        id: utilService.makeId(4),
+        isPinned: false,
+        isArchive: false,
+        isRecycleBin: false,
+        type,
+        title,
+        info,
+        style
+    }
+    notes.unshift(note)
+    _saveToStorage(notes)
+}
+
+function editNote(noteId ,key, value){
+    const notes = _loadFromStorage()
+    const noteIdx = getNoteIdx(noteId)
+    notes[noteIdx][key] = value
+    _saveToStorage(notes)
+}
+
+function onArchiveNote(noteId){
+    editNote(noteId,'isArchive',true)
+}
+function onRecycleBinNote(noteId){
+    editNote(noteId,'isRecycleBin',true)
+}
+
 
 //**** INTERNAL FUNCTIONS: ************************************//
 
 function _createNotes() {
-    gNotes = [
+    return [
         {
             id: "n101",
             type: "note-txt",
@@ -50,17 +91,15 @@ function _createNotes() {
         {
             id: "n102",
             type: "note-img",
-            info: {
-                url: "http://some-img/me",
-                title: "Bobi and Me"
-            },
+            title: "Bobi and Me",
+            info: { url: "http://some-img/me"  },
             style: { backgroundColor: "#00d" }
         },
         {
             id: "n103",
             type: "note-todos",
+            title: "Get my stuff together",
             info: {
-                label: "Get my stuff together",
                 todos: [
                     {
                         txt: "Driving liscence",
@@ -73,7 +112,6 @@ function _createNotes() {
                 ]
             }
         }]
-        _saveToStorage(gNotes)
 }
 
 function _loadFromStorage() {
