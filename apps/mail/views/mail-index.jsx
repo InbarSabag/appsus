@@ -13,8 +13,8 @@ export class MailIndex extends React.Component {
     }
 
     loadMails = () => {
-
-        mailService.query(this.state.filterBy).then((mails) => {
+        mailService.query(this.state.filterBy)
+        .then((mails) => {
             this.setState({ mails })
         })
     }

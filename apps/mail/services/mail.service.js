@@ -6,12 +6,10 @@ export const mailService = {
 }
 
 const KEY = 'mailsDB'
-
 const loggedinUser = {
     email: 'user@appsus.com',
     fullname: 'Mahatma Appsus'
 }
-
 var gMails = [
     {
         id: utilService.makeId(),
