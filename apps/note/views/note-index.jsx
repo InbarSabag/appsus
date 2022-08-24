@@ -1,12 +1,32 @@
-import { NoteCompose } from '../cmps/note-compose.jsx'
 import { NoteList } from '../cmps/note-list.jsx'
-import { NotSidebar } from '../cmps/note-sidebar.jsx'
+import { noteService } from '../services/note.service.js'
+import { LoadingSpinner } from "../../../cmps/spinner.jsx";
+
 
 export class NoteIndex extends React.Component {
-    render() {
-        return (
-            <div>note app</div>
 
-        )
+    state = {
+        notes: []
+        }
+
+
+    componentDidMount() {
+        this.loadNotes()
+    }
+
+    loadNotes = () => {
+        console.log('loadNotes');
+        noteService.query()
+            .then(notes => this.setState({ notes }))
+    }
+
+    render() {
+        const { notes } = this.state
+        console.log('🚀 ~ NoteIndex ~ render ~ notes', notes)
+        if (!notes) return <LoadingSpinner/>
+        return <section className="note-app">
+            <h1>Note App</h1>
+                <NoteList />
+        </section>
     }
 }
