@@ -16,4 +16,5 @@
 /* Cmps */
 @import './cmps/user-msg.css';
 @import './cmps/app-header.css';
+@import './cmps/spinner.css';
 @import './apps/mail/cmps/mail-list.css';
