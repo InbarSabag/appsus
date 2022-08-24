@@ -1,7 +1,7 @@
 import { storageService } from "../../../services/storage.service.js"
 import { utilService } from "../../../services/util.service.js"
 
-const mailService = {
+export const mailService = {
     query,
 }
 
@@ -59,8 +59,8 @@ const criteria = {
 
 function query() { // TODO: add filterBy
     const mails = _loadFromStorage()
-    if (!mails || !mails.length) _createMails()
-    return Promise.resolve(filteredMails)
+    if (!mails || !mails.length) mails = _createMails()
+    return Promise.resolve(mails)
 }
 
 function _loadFromStorage() {

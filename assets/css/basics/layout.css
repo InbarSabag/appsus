@@ -1,0 +1,6 @@
+.main-layout {
+    margin-inline-start: 5vw;
+    margin-inline-end: 5vw;
+    margin-inline-end: calc(5vw - 2px);
+
+}
