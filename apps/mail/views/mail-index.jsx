@@ -1,5 +1,5 @@
 import { mailService } from '../services/mail.service.js'
-// import { MailList } from '../cmps/mail-list.jsx'
+import { MailList } from '../cmps/mail-list.jsx'
 import { LoadingSpinner } from "../../../cmps/spinner.jsx";
 
 export class MailIndex extends React.Component {
@@ -24,17 +24,10 @@ export class MailIndex extends React.Component {
         if (!mails) return <LoadingSpinner />
         return <section className="mail-index">
 
-            {/* <MailList
+            <MailList
              mails = {mails}
             />
-            <table>
-                <thead></thead>
-                <tbody>
-                    <tr>
-
-                    </tr>
-                </tbody>
-            </table> */}
+          
         </section>
     }
 }

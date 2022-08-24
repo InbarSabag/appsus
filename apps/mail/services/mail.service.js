@@ -20,6 +20,7 @@ var gMails = [
         isRead: false,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
+        status: 'inbox/sent/trash/draft',
     },
     {
         id: utilService.makeId(),
@@ -28,6 +29,7 @@ var gMails = [
         isRead: false,
         sentAt: Date.now(),
         to: 'momo@momo.com',
+        status: 'inbox/sent/trash/draft',
     },
     {
         id: utilService.makeId(),
@@ -36,6 +38,7 @@ var gMails = [
         isRead: false,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
+        status: 'inbox/sent/trash/draft',
     },
     {
         id: utilService.makeId(),
@@ -44,20 +47,11 @@ var gMails = [
         isRead: false,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
+        status: 'inbox/sent/trash/draft',
     },
 ]
 
-
-// The emailService query function should get a criteria object, here is an idea:
-const criteria = {
-    status: 'inbox/sent/trash/draft',
-    txt: 'puki', // no need to support complex text search
-    isRead: true, // (optional property, if missing: show all)
-    isStared: true, // (optional property, if missing: show all)
-    lables: ['important', 'romantic'] // has any of the labels
-}
-
-function query() { // TODO: add filterBy
+function query() {
     const mails = _loadFromStorage()
     if (!mails || !mails.length) mails = _createMails()
     return Promise.resolve(mails)
@@ -71,3 +65,11 @@ function _createMails() {
     storageService.saveToStorage(KEY, gMails)
     return gMails
 }
+
+// The emailService query function should get a criteria object, here is an idea:
+// const criteria = {
+//     txt: 'puki', // no need to support complex text search
+//     isRead: true, // (optional property, if missing: show all)
+//     isStared: true, // (optional property, if missing: show all)
+//     lables: ['important', 'romantic'] // has any of the labels
+// }
