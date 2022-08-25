@@ -1,0 +1,24 @@
+.note-filter input,select{
+    background-color: transparent;
+    border: none;
+    height: 20px;
+}
+
+.note-filter input,select:focus{
+ outline: none;
+}
+
+.filter-form{
+    margin: 10px;
+    border-bottom: 1px solid lightgray;
+    width: max-content;
+}
+
+.filter-form:focus-within{
+    border-bottom: 2px solid lightblue;
+}
+
+.note-filter input{
+    width: 250px;
+}
+

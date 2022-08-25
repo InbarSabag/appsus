@@ -56,7 +56,7 @@ var gMails = [
 ]
 
 function query() {
-    const mails = _loadFromStorage()
+    let mails = _loadFromStorage()
     if (!mails || !mails.length) mails = _createMails()
     return Promise.resolve(mails)
 }
