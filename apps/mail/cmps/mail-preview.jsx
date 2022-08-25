@@ -1,15 +1,10 @@
-export function MailPreview({ isReadClass, subject, body, sentAt }) {
-    return <section className="mail-preview">
-        <div>{isReadClass}</div>
-        |
-        <div>{subject}</div>
-        |
-        <div>{body}</div>
-        |
-        <div>{Date(sentAt)}</div>
-    </section>
-}
-
-function handleDate() {
-    
+export function MailPreview({ isRead, subject, body, sentAt }) {
+    const readClass = isRead ? 'read' : ''
+    return ( <tr className="mail-preview">
+            <td><input type="checkbox" name="" id="" /></td>
+            <td>{subject}</td>
+            <td>{body}</td>
+            <td>{Date(sentAt)}</td>
+        </tr>
+    )
 }

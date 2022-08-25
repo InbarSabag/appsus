@@ -1,7 +1,7 @@
 import { mailService } from '../services/mail.service.js'
 import { MailList } from '../cmps/mail-list.jsx'
 import { LoadingSpinner } from "../../../cmps/spinner.jsx";
-
+import { MailFilter } from '../cmps/mail-filter.jsx'
 export class MailIndex extends React.Component {
     state = {
         mails: [],
@@ -19,11 +19,16 @@ export class MailIndex extends React.Component {
 
     render() {
         const { mails } = this.state
-        if (!mails|| !mails.length) return <LoadingSpinner />
+        if (!mails || !mails.length) return <LoadingSpinner />
         return <section className="mail-index">
-            <MailList
-                mails={mails}
-            />
+            <table>
+                <thead>
+                        <MailFilter />
+                </thead>
+                <MailList
+                    mails={mails}
+                />
+            </table>
         </section>
     }
 }
