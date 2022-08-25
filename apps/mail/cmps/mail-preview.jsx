@@ -1,31 +1,30 @@
-import { LongText } from '../../../cmps/Long-text.jsx'
+const { Link } = ReactRouterDOM
 
-export function MailPreview({ from, isRead, subject, body, sentAt }) {
+export function MailPreview({mail}) {
+    const { id, from, isRead, subject, body, sentAt } = mail
     const readClass = isRead ? 'read' : 'unread'
-    return <tr className={`${readClass} mail-preview`} >
-        <td>
-            <span className='btns-checkbox'>
-                <input
-                    type="checkbox"
-                    name=""
-                    id=""
-                />
-            </span>
-            <span> star </span>
-            <span>{from}</span>
-        </td>
-        <td>
-            <span>{subject} </span>
-            <span className='mail-preview-body'>- {body}</span>
-        </td>
-        <td>{showTime(sentAt)}</td>
-    </tr>
-}
-function _handleLongTxt(mailBody) {
-    return <LongText
-        txt={mailBody}
-        isLongTxtShown={mailBody.length > 10 ? true : false}
-    />
+
+    return <section className={`${readClass} mail-preview`} >
+        <Link to={"/mail/" + id}>
+            <div>
+                <span className='btns-checkbox'>
+                    <input
+                        type="checkbox"
+                        name="selected-mail"
+                        id="selected-mail"
+                    />
+                </span>
+                <span> star </span>
+                <span>{from}</span>
+
+            </div>
+            <div>
+                <span>{subject}</span>
+                <span className='mail-preview-body'> - {body}</span>
+            </div>
+            <div>{showTime(sentAt)}</div>
+        </Link>
+    </section>
 }
 
 function showTime(sentAt) {

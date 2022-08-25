@@ -1,7 +1,12 @@
 import { mailService } from '../services/mail.service.js'
 import { MailList } from '../cmps/mail-list.jsx'
-import { LoadingSpinner } from "../../../cmps/spinner.jsx";
+import { LoadingSpinner } from "../../../cmps/spinner.jsx"
 import { MailFilter } from '../cmps/mail-filter.jsx'
+import { FolderList } from '../cmps/mail-folder-list.jsx'
+
+const Router = ReactRouterDOM.HashRouter
+const { Route, Switch } = ReactRouterDOM
+
 export class MailIndex extends React.Component {
     state = {
         mails: [],
@@ -10,7 +15,6 @@ export class MailIndex extends React.Component {
 
     componentDidMount() {
         this.loadMails()
-
     }
 
     loadMails = () => {
@@ -22,24 +26,21 @@ export class MailIndex extends React.Component {
         this.setState(prevState =>
             ({ ...prevState, filterBy }), this.loadMails)
     }
-    
+
     render() {
         const { mails, filterBy } = this.state
         const { onSetFilter } = this
-        if (!mails || !mails.length) return <LoadingSpinner />
-        return <section className="mail-index">
-            <table className='mail-table'>
-                <thead>
-                    <MailFilter
-                        filterBy={filterBy}
-                        onSetFilter={onSetFilter}
-                    />
-                </thead>
-                <MailList
-                    mails={mails}
-                // onSetFilter={this.onSetFilter}
-                />
-            </table>
+        if (!mails) return <LoadingSpinner />
+        return <section className="mail-index flex column">
+            <FolderList />
+            <MailFilter
+                filterBy={filterBy}
+                onSetFilter={onSetFilter}
+            />
+            <MailList
+                mails={mails}
+            // onSetFilter={this.onSetFilter}
+            />
         </section>
     }
 }

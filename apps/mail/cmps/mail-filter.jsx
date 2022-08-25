@@ -24,9 +24,8 @@ export class MailFilter extends React.Component {
     }
     
     render() {
-        return <tr className=" mail-filter">
-            <th className="flex space-between">
-
+        return <section className="mail-filter">
+            <div className="flex space-between">
                 <input
                     type="checkbox"
                     name="check-all"
@@ -51,7 +50,7 @@ export class MailFilter extends React.Component {
                     name="search-mail"
                     id="search-mail"
                 />
-            </th>
-        </tr>
+            </div>
+        </section>
     }
 }

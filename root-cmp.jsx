@@ -1,10 +1,14 @@
 import { AppHeader } from "./cmps/app-header.jsx"
 import { About } from "./views/about.jsx"
 import { Home } from "./views/home.jsx"
+
 import { MailIndex } from "./apps/mail/views/mail-index.jsx"
+import { MailDetails } from "./apps/mail/cmps/mail-details.jsx"
+
 import { NoteIndex } from "./apps/note/views/note-index.jsx"
-import { UserMsg } from "./cmps/user-msg.jsx"
 import { NoteDetails } from "./apps/note/views/note-details.jsx"
+
+import { UserMsg } from "./cmps/user-msg.jsx"
 
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
@@ -14,6 +18,7 @@ export function App() {
         <section className="app">
             <AppHeader />
             <Switch>
+                <Route path="/mail/:mailId" component={MailDetails} />
                 <Route path="/mail" component={MailIndex} />
                 <Route path="/note/:noteId" component={NoteDetails} />
                 <Route path="/note" component={NoteIndex} />
@@ -21,6 +26,6 @@ export function App() {
                 <Route path="/" component={Home} />
             </Switch>
         </section>
-        <UserMsg/>
+        <UserMsg />
     </Router>
 }
