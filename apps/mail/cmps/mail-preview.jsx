@@ -1,12 +1,12 @@
 export function MailPreview({ isRead, subject, body, sentAt }) {
-    const readClass = isRead ? 'read' : ''
-    return (<tr className="mail-preview">
+    console.log('isRead:', isRead)
+    const readClass = isRead ? 'read' : 'unread'
+    return <tr className={`${readClass} mail-preview`} >
         <td><input type="checkbox" name="" id="" /></td>
         <td>{subject}</td>
         <td>{body}</td>
         <td>{showTime(sentAt)}</td>
     </tr>
-    )
 }
 
 function showTime(sentAt) {
