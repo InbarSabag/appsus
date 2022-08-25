@@ -24,12 +24,18 @@ var gNotes = [
     {
         id: "n102",
         type: "note-img",
-        title: "Bobi and Me",
-        info: { url: "http://some-img/me"  },
+        title: "React",
+        info: { url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaAm5ng6K2bPMzkqz9jV6kGA8ZV3CEVRk3LQ&usqp=CAU"  },
         style: { backgroundColor: "#00d" }
     },
     {
         id: "n103",
+        type: "note-video",
+        title: "Liked this one!",
+        info: { url: "https://www.youtube.com/embed/6DnLm4aqgz8?start=15" },
+    },
+    {
+        id: "n104",
         type: "note-todos",
         title: "Get my stuff together",
         info: {

@@ -22,11 +22,10 @@ export class NoteIndex extends React.Component {
 
     render() {
         const { notes } = this.state
-        console.log('🚀 ~ NoteIndex ~ render ~ notes', notes)
         if (!notes) return <LoadingSpinner/>
         return <section className="note-app">
             <h1>Note App</h1>
-                <NoteList />
+                <NoteList notes = {notes}/>
         </section>
     }
 }

@@ -1,14 +1,15 @@
-// import { NotePreview } from '../cmps/note-preview.jsx'
+import { NotePreview } from '../cmps/note-preview.jsx'
 
-export class NoteList extends React.Component {
+export function NoteList({notes}) {
 
-state={
-    notes: [1,2,3]
-}
-
-
-
-render(){
-return <h1>list</h1>
-}
+return <section className="note-list">
+    <h1>list</h1>
+    <ul>
+    {
+    notes.map(note =>
+        <li className="note-preview" key={note.id} style={note.style}>
+            <NotePreview note = {note}/>
+        </li>)}
+    </ul>
+    </section>
 }
