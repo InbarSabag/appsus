@@ -26,14 +26,16 @@ export class NotePreview extends React.Component {
 
     render() {
         const { note } = this.props
-        console.log('🚀 ~ NotePreview ~ render ~ note', note)
         return <article >
             <Link to={"/notes/" + note.id}>
-                <h2>{note.title}</h2>
-                <this.DynamicCmp
-                    info={note.info}
-                    type={note.type}
-                />
+                <div className="note-head">{note.title}</div>
+                <div className="note-content">
+                    <this.DynamicCmp
+                        info={note.info}
+                        type={note.type}
+                    />
+                </div>
+                <div className="note-bottom">Edit</div>
             </Link>
         </article >
 
@@ -43,7 +45,6 @@ export class NotePreview extends React.Component {
 export class NoteTxt extends React.Component {
     render() {
         const { info } = this.props
-        console.log("note Txt" + info.txt)
         return <p>{info.txt}</p>
     }
 }
@@ -51,7 +52,6 @@ export class NoteTxt extends React.Component {
 export class NoteImg extends React.Component {
     render() {
         const { info } = this.props
-        console.log("note Img" + info.url)
         return <img src={info.url} />
     }
 }
@@ -59,11 +59,10 @@ export class NoteImg extends React.Component {
 export class NoteVideo extends React.Component {
     render() {
         const { info } = this.props
-        console.log("note video" + info.url)
         return <iframe
             width="560"
             height="315"
-            src={info.url} >
+            src={info.url + "autoplay=1&mute=1"} >
         </iframe>
     }
 }
@@ -71,7 +70,6 @@ export class NoteVideo extends React.Component {
 export class NoteTodos extends React.Component {
     render() {
         const { todos } = this.props.info
-        console.log("note TODO" + todos)
         return <ul>
             {todos.map(todo =>
                 <li key={todo.txt}>{todo.txt}</li>

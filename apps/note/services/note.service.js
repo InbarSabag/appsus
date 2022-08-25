@@ -18,21 +18,23 @@ var gNotes = [
     {
         id: "n101",
         type: "note-txt",
+        title: "First note",
         isPinned: true,
-        info: { txt: "Fullstack Me Baby!" }
+        info: { txt: "Fullstack Me Baby!" },
+        style: { backgroundColor: "lightpink" }
     },
     {
         id: "n102",
         type: "note-img",
         title: "React",
         info: { url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaAm5ng6K2bPMzkqz9jV6kGA8ZV3CEVRk3LQ&usqp=CAU"  },
-        style: { backgroundColor: "#00d" }
+        style: { backgroundColor: "lightblue" }
     },
     {
         id: "n103",
         type: "note-video",
         title: "Liked this one!",
-        info: { url: "https://www.youtube.com/embed/6DnLm4aqgz8?start=15" },
+        info: { url: "https://www.youtube.com/embed/tgbNymZ7vqY?" },
     },
     {
         id: "n104",
@@ -55,9 +57,20 @@ var gNotes = [
 
 //**** FUNCTIONS: *********************************************//
 
-function query() {
-    const notes = _loadFromStorage()
+function query(filterBy) {
+    console.log('🚀 ~ query ~ filterBy', filterBy)
+    let notes = _loadFromStorage()
     if (!notes || !notes.length) notes = _createNotes()
+
+    if (filterBy) {
+        let { title, type } = filterBy
+        notes = notes.filter(note => (
+            (note.title.toUpperCase()).includes(title.toUpperCase()) &&
+            (type==='' || note.type === type)
+        ))
+    }
+
+
     return Promise.resolve(notes)
 }
 
