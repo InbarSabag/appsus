@@ -31,8 +31,11 @@ export class MailIndex extends React.Component {
         const { mails, filterBy } = this.state
         const { onSetFilter } = this
         if (!mails) return <LoadingSpinner />
-        return <section className="mail-index flex column">
-            <FolderList />
+        return <section className="mail-index flex">
+            <FolderList
+                filterBy={filterBy}
+                onSetFilter={onSetFilter}
+             />
             <MailFilter
                 filterBy={filterBy}
                 onSetFilter={onSetFilter}

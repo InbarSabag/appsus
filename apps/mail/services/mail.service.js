@@ -3,12 +3,46 @@ import { utilService } from "../../../services/util.service.js"
 
 export const mailService = {
     query,
+    getUser,
+    getById,
+    getNextMail,
+    remove,
+    save,
+
 }
 
 const KEY = 'mailsDB'
 const loggedinUser = {
     email: 'user@appsus.com',
-    fullname: 'Mahatma Appsus'
+    fullName: 'Mahatma Appsus'
+}
+function getUser() {
+    return loggedinUser
+}
+
+function getById(mailId) {
+    if (!mailId) return Promise.resolve(null)
+    const mails = _loadFromStorage()
+    const mail = mails.find(mail => mailId === mail.id)
+    return Promise.resolve(mail)
+}
+
+function getNextMail(mailId) {
+    let mails = _loadFromStorage()
+    const mailIdx = mails.findIndex(book => book.id === mailId)
+    const nextMailIdx = mailIdx + 1 === mails.length ? 0 : mailIdx + 1
+    return mails[nextMailIdx].id
+}
+function remove(mailId) {
+    let mails = _loadFromStorage()
+    mails = mails.filter(mail => mail.id !== mailId)
+    _saveToStorage(mails)
+    return Promise.resolve()
+}
+
+function save(mail) {
+    if (mail.id) return _update(mail)
+    else return _add(mail)
 }
 var gMails = [
     {
@@ -108,7 +142,7 @@ var gMails = [
         from: 'BRAVO shows',
         subject: 'Come to our shows',
         body: 'Hello Puki, come and see what is new at Brabo shows. ',
-        isRead: false,
+        isRead: true,
         sentAt: Date.now(),
         to: 'momo@momo.com',
         status: 'inbox/sent/trash/draft',
@@ -118,7 +152,7 @@ var gMails = [
         from: 'AliExpress',
         subject: 'just arrived: ',
         body: 'Enter AliExpress and see what is IN and NEW ',
-        isRead: false,
+        isRead: true,
         sentAt: Date.now(),
         to: 'momo@momo.com',
         status: 'inbox/sent/trash/draft',
@@ -126,9 +160,9 @@ var gMails = [
     {
         id: utilService.makeId(),
         from: 'ASOS',
-        subject: 'We’re updating our privacy notice',
-        body: 'We’re updating our privacy notice ',
-        isRead: false,
+        subject: 'We`re updating our privacy notice',
+        body: 'We`re updating our privacy notice ',
+        isRead: true,
         sentAt: Date.now(),
         to: 'momo@momo.com',
         status: 'inbox/sent/trash/draft',

@@ -1,29 +1,29 @@
 const { Link } = ReactRouterDOM
 
-export function MailPreview({mail}) {
+export function MailPreview({ mail }) {
     const { id, from, isRead, subject, body, sentAt } = mail
     const readClass = isRead ? 'read' : 'unread'
 
-    return <section className={`${readClass} mail-preview`} >
-        <Link to={"/mail/" + id}>
-            <div>
-                <span className='btns-checkbox'>
-                    <input
-                        type="checkbox"
-                        name="selected-mail"
-                        id="selected-mail"
-                    />
-                </span>
-                <span> star </span>
-                <span>{from}</span>
+    return <section className={`${readClass} mail-preview flex space-between`} >
+        <div>
+            <span className='btns-checkbox'>
+                <input
+                    type="checkbox"
+                    name="selected-mail"
+                    id="selected-mail"
+                />
+            </span>
+            <span> star </span>
+            <span>{from}</span>
+        </div>
 
-            </div>
-            <div>
+        <div>
+            <Link to={"/mail/" + id}>
                 <span>{subject}</span>
                 <span className='mail-preview-body'> - {body}</span>
-            </div>
-            <div>{showTime(sentAt)}</div>
-        </Link>
+            </Link>
+        </div>
+        <div>{showTime(sentAt)}</div>
     </section>
 }
 
