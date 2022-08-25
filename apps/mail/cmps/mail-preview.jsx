@@ -34,3 +34,4 @@ function showTime(sentAt) {
     if (diff < day) return `${date.getHours()}:${date.getMinutes()}`
     else return `${date.getDate()} ${date.toLocaleString('en', { month: 'short' })}`
 }
+
