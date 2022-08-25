@@ -1,0 +1,35 @@
+.new-note input{
+    background-color: transparent;
+    border: none;
+    height: 20px;
+    border-bottom: 1px solid gray;
+    margin: 0px 15px;
+}
+
+.new-note input:focus{
+    outline: none;
+    border-bottom: 2px solid gray;
+}
+
+.new-note{
+    margin: 10px;
+    background-color: rgb(225, 224, 224);
+    box-shadow: 0 0 3px 0 rgb(176, 176, 176) ;
+    font-size: 1.2em;
+}
+
+.note-filter input{
+    width: 250px;
+}
+
+.new-note>* button{
+    border: none;
+    margin: 5px;
+
+}
+
+.new-note>* button:hover{
+    outline: 1px solid gray;
+    border-radius: 5px;
+}
+

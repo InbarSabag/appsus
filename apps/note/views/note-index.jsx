@@ -1,4 +1,5 @@
 import { NotesFilter } from '../cmps/note-filter.jsx'
+import { NoteCompose } from '../cmps/note-compose.jsx'
 import { NoteList } from '../cmps/note-list.jsx'
 import { noteService } from '../services/note.service.js'
 import { LoadingSpinner } from '../../../cmps/spinner.jsx'
@@ -17,7 +18,6 @@ export class NoteIndex extends React.Component {
     }
 
     loadNotes = () => {
-        console.log('loadNotes');
         noteService.query(this.state.filterBy)
             .then(notes => this.setState({ notes }))
     }
@@ -32,6 +32,7 @@ export class NoteIndex extends React.Component {
         if (!notes) return <LoadingSpinner/>
         return <section className="note-app">
             <h1>Note App</h1>
+                <NoteCompose/>
                 <NotesFilter onSetFilter={this.onSetFilter}/>
                 <NoteList notes = {notes}/>
         </section>

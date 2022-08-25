@@ -1,3 +1,54 @@
+/* GENERAL  */
 .fa-paper-plane::before{
    content: "\f1d8"; 
 }
+
+.fa-pencil::before{
+   content: "f303"; 
+}
+
+.fa-trash-can::before{
+   content: "f2ed"; 
+}
+
+.fa-trash-can-slash::before{
+   content: "e2ad"; 
+}
+
+.fa-trash-can-undo::before{
+   content: "f896"; 
+}
+
+.fa-archiv::before{
+   content: "f64b"; 
+}
+
+/***** NOTE */
+.fa-youtube::before{
+   content: "\f167"; 
+}
+
+.fa-note::before{
+   content: "\e1ff"; 
+}
+
+.fa-todo-list::before{
+   content: "f03a"; 
+}
+
+.fa-image::before{
+   content: "\f03e"; 
+}
+
+/***** MAIL */
+.fa-mail::before{
+   content: "\f0e0"; 
+}
+
+.fa-open-mail::before{
+   content: "f2b6"; 
+}
+
+
+
+
