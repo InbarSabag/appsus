@@ -25,8 +25,8 @@ var gMails = [
     {
         id: utilService.makeId(),
         subject: 'Miss Him!',
-        body: 'Would love to catch up sometimes',
-        isRead: false,
+        body: 'Would love to See the beach sometimes',
+        isRead: true,
         sentAt: Date.now(),
         to: 'momo@momo.com',
         status: 'inbox/sent/trash/draft',
@@ -34,8 +34,8 @@ var gMails = [
     {
         id: utilService.makeId(),
         subject: 'Miss Them!',
-        body: 'Would love to catch up sometimes',
-        isRead: false,
+        body: 'Would love to Drinking Beer!',
+        isRead: true,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
         status: 'inbox/sent/trash/draft',

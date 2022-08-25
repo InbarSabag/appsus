@@ -10,7 +10,7 @@ export function MailList({ mails }) {
                 isReadClass={mail.isRead ? '' : 'unread-mail'}
                 subject={mail.subject}
                 body={mail.body}
-
+                sentAt={mail.sentAt}
             />)}
         </div>
     </section >

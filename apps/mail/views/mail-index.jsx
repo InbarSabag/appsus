@@ -9,6 +9,7 @@ export class MailIndex extends React.Component {
 
     componentDidMount() {
         this.loadMails()
+
     }
 
     loadMails = () => {
@@ -18,7 +19,7 @@ export class MailIndex extends React.Component {
 
     render() {
         const { mails } = this.state
-        if (!mails) return <LoadingSpinner />
+        if (!mails|| !mails.length) return <LoadingSpinner />
         return <section className="mail-index">
             <MailList
                 mails={mails}

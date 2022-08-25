@@ -1,5 +1,15 @@
-export function MailPreview({ isReadClass, subject, body }) {
+export function MailPreview({ isReadClass, subject, body, sentAt }) {
     return <section className="mail-preview">
-        <p>{body}</p>
+        <div>{isReadClass}</div>
+        |
+        <div>{subject}</div>
+        |
+        <div>{body}</div>
+        |
+        <div>{Date(sentAt)}</div>
     </section>
+}
+
+function handleDate() {
+    
 }
