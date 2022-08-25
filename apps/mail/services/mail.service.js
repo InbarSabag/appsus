@@ -13,9 +13,9 @@ const loggedinUser = {
 var gMails = [
     {
         id: utilService.makeId(),
-        subject: 'Miss you!',
-        from: 'Daniel',
-        body: 'Would love to catch up sometimes',
+        from: 'DropBox',
+        subject: 'We noticed a new sign in to your Dropbox',
+        body: 'A new computer just signed in to your Dropbox account. To help keep your account secure, let us know if this is you.',
         isRead: false,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
@@ -25,9 +25,9 @@ var gMails = [
     },
     {
         id: utilService.makeId(),
-        subject: 'Miss Him!',
-        from: 'Matan',
-        body: 'Would love to See the beach sometimes',
+        from: 'Google',
+        subject: 'בדיקת הגדרות הפרטיות של חשבון Google שלך',
+        body: 'Would love to See the beach ',
         isRead: false,
         sentAt: Date.now(),
         to: 'momo@momo.com',
@@ -35,28 +35,19 @@ var gMails = [
     },
     {
         id: utilService.makeId(),
-        from: 'Shalom',
-        subject: 'Miss Them!',
-        body: 'Would love to Drinking Beer!',
-        isRead: true,
-        sentAt: 1551133930594,
+        from: 'LinkedIn',
+        subject: 'LetsDefend and others share their thoughts on LinkedIn',
+        body: 'Would love to See the beach ',
+        isRead: false,
+        sentAt: Date.now(),
         to: 'momo@momo.com',
         status: 'inbox/sent/trash/draft',
     },
-    {
-        id: utilService.makeId(),
-        from: 'Daniel',
-        subject: 'Miss The All World!',
-        body: 'Would love to catch up sometimes',
-        isRead: true,
-        sentAt: 1551133930594,
-        to: 'momo@momo.com',
-        status: 'inbox/sent/trash/draft',
-    },
+
 ]
 
 function query() {
-    const mails = _loadFromStorage()
+    let mails = _loadFromStorage()
     if (!mails || !mails.length) mails = _createMails()
     return Promise.resolve(mails)
 }

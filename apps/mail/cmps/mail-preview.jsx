@@ -4,7 +4,7 @@ export function MailPreview({ from, isRead, subject, body, sentAt }) {
     const readClass = isRead ? 'read' : 'unread'
     return <tr className={`${readClass} mail-preview`} >
         <td>
-            <span>
+            <span className='btns-checkbox'>
                 <input
                     type="checkbox"
                     name=""
@@ -12,18 +12,19 @@ export function MailPreview({ from, isRead, subject, body, sentAt }) {
                 />
             </span>
             <span> star </span>
+            <span>{from}</span>
         </td>
-        <td>{from}</td>
-        <td>{`${subject} - ${body}`}</td>
+        <td>
+            <span>{subject} </span>
+            <span className='mail-preview-body'>- {body}</span>
+        </td>
         <td>{showTime(sentAt)}</td>
     </tr>
 }
 function _handleLongTxt(mailBody) {
-    console.log('mailBody.length > 10:', mailBody.length > 10)
     return <LongText
         txt={mailBody}
         isLongTxtShown={mailBody.length > 10 ? true : false}
-        txtLimit={5}
     />
 }
 

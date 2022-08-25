@@ -6,7 +6,6 @@ export class MailFilter extends React.Component {
         }
     }
 
-
     handleChange = ({ target }) => {
         const field = target.name
         const value = target.type === 'number' ? +target.value : target.value;
@@ -19,9 +18,11 @@ export class MailFilter extends React.Component {
         this.props.onSetFilter(this.state.filterBy)
         this.cleanForm()
     }
+
     cleanForm = () => {
         this.setState({ filterBy: { txt: '', status: '' } })
     }
+    
     render() {
         return <tr className=" mail-filter">
             <th className="flex space-between">
