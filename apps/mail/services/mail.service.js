@@ -14,6 +14,7 @@ var gMails = [
     {
         id: utilService.makeId(),
         subject: 'Miss you!',
+        from: 'Daniel',
         body: 'Would love to catch up sometimes',
         isRead: false,
         sentAt: 1551133930594,
@@ -25,6 +26,7 @@ var gMails = [
     {
         id: utilService.makeId(),
         subject: 'Miss Him!',
+        from: 'Matan',
         body: 'Would love to See the beach sometimes',
         isRead: false,
         sentAt: Date.now(),
@@ -33,6 +35,7 @@ var gMails = [
     },
     {
         id: utilService.makeId(),
+        from: 'Shalom',
         subject: 'Miss Them!',
         body: 'Would love to Drinking Beer!',
         isRead: true,
@@ -42,6 +45,7 @@ var gMails = [
     },
     {
         id: utilService.makeId(),
+        from: 'Daniel',
         subject: 'Miss The All World!',
         body: 'Would love to catch up sometimes',
         isRead: true,

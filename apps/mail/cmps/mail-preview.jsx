@@ -1,12 +1,30 @@
-export function MailPreview({ isRead, subject, body, sentAt }) {
-    console.log('isRead:', isRead)
+import { LongText } from '../../../cmps/Long-text.jsx'
+
+export function MailPreview({ from, isRead, subject, body, sentAt }) {
     const readClass = isRead ? 'read' : 'unread'
     return <tr className={`${readClass} mail-preview`} >
-        <td><input type="checkbox" name="" id="" /></td>
-        <td>{subject}</td>
-        <td>{body}</td>
+        <td>
+            <span>
+                <input
+                    type="checkbox"
+                    name=""
+                    id=""
+                />
+            </span>
+            <span> star </span>
+        </td>
+        <td>{from}</td>
+        <td>{`${subject} - ${body}`}</td>
         <td>{showTime(sentAt)}</td>
     </tr>
+}
+function _handleLongTxt(mailBody) {
+    console.log('mailBody.length > 10:', mailBody.length > 10)
+    return <LongText
+        txt={mailBody}
+        isLongTxtShown={mailBody.length > 10 ? true : false}
+        txtLimit={5}
+    />
 }
 
 function showTime(sentAt) {

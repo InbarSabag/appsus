@@ -7,6 +7,10 @@
     font-size: 0.875em;
 }
 
+.mail-preview:hover {
+    cursor: pointer;
+}
+
 .mail-preview.read {
     background: rgb(232, 242, 250);
 }

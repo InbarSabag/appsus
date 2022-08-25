@@ -17,10 +17,12 @@ export class MailIndex extends React.Component {
         mailService.query()
             .then(mails => this.setState({ mails }))
     }
+
     onSetFilter = (filterBy) => {
         this.setState(prevState =>
             ({ ...prevState, filterBy }), this.loadMails)
     }
+    
     render() {
         const { mails, filterBy } = this.state
         const { onSetFilter } = this
