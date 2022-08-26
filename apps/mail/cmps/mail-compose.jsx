@@ -1,5 +1,5 @@
 export function MailCompose(){
-    return <section className="mail-compose">
+    return <section className="flex column mail-compose">
         
     </section>
 }

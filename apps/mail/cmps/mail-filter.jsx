@@ -21,15 +21,24 @@ export class MailFilter extends React.Component {
     cleanForm = () => {
         this.setState({ filterBy: { txt: '', status: '' } })
     }
-    
+
     render() {
         return <section className="mail-filter">
             <div className="flex space-between">
+
                 <input
-                    type="checkbox"
                     name="check-all"
+                    type="checkbox"
                     id="check-all"
                 />
+
+                <input
+                    name="search-mail"
+                    type="search"
+                    placeholder="Search Mail.."
+                    id="search-mail"
+                />
+
                 <select
                     className="select-filter-mail"
                     name="status"
@@ -42,13 +51,6 @@ export class MailFilter extends React.Component {
                     <option value="draft">Draft</option>
                     <option value="favorite">Favorite</option>
                 </select>
-
-                <input
-                    type="search"
-                    placeholder="Search Mail.."
-                    name="search-mail"
-                    id="search-mail"
-                />
             </div>
         </section>
     }

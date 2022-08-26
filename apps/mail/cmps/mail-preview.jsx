@@ -20,12 +20,11 @@ export function MailPreview({ mail }) {
             <span>{mail.from}</span>
         </div>
 
-        <div>
-            <Link to={"/mail/" + mail.id}>
-                <span>{mail.subject}</span>
-                <span className='mail-preview-body'> - {mail.body}</span>
-            </Link>
-        </div>
+        <Link className="mail-content-container" to={"/mail/" + mail.id}>
+            <span>{mail.subject}</span>
+            <span className='mail-preview-body'> - {mail.body}</span>
+        </Link>
+
         <div>{showTime(mail.sentAt)}</div>
     </section>
 }

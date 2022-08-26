@@ -4,7 +4,6 @@ import { MailFolderList } from '../cmps/mail-folder-list.jsx'
 import { MailDetails } from "../cmps/mail-details.jsx"
 import { LoadingSpinner } from "../../../cmps/spinner.jsx"
 
-import { MailFilter } from '../cmps/mail-filter.jsx'
 import {MailCompose} from '../cmps/mail-compose.jsx'
 
 const { Route, Switch } = ReactRouterDOM
@@ -39,12 +38,7 @@ export class MailIndex extends React.Component {
 
         if (!mails) return <LoadingSpinner />
         return <section className="flex main-layout mail-index">
-            {/* //TODO:Moving MailFilter to  header as dynamic CMP
-            {<MailFilter
-                filterBy={filterBy}
-                onSetFilter={onSetFilter}
-            />} 
-            */}
+
             <MailFolderList />
             <MailList mails={mails} />
             
