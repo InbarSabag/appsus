@@ -1,6 +1,10 @@
 const { Link } = ReactRouterDOM
 
 export function MailPreview({ mail }) {
+    // state = {
+    //     status: null,
+    //     filterBy: null,
+    // }
     const readClass = mail.isRead ? 'read' : 'unread'
 
     return <section className={`${readClass} mail-preview flex space-between`} >

@@ -27,9 +27,9 @@ export class NoteCompose extends React.Component {
             <form className="note-form">
                 Add a New Note:
                 <input type="text" placeholder="New Note Title" onChange={this.handleChange} />
-                <button className="fa-note" onClick={(ev) => this.onCreateNote('note-txt', ev)}>Text</button>
-                <button className="fa-image" onClick={(ev) => this.onCreateNote('note-img', ev)}>Img</button>
-                <button className="fa-youtube" onClick={(ev) => this.onCreateNote('note-video', ev)}>Video</button>
+                <button className="fa fa-note" onClick={(ev) => this.onCreateNote('note-txt', ev)}>Text</button>
+                <button className="fa fa-image" onClick={(ev) => this.onCreateNote('note-img', ev)}></button>
+                <button className="fa fa-solid fa-youtube" onClick={(ev) => this.onCreateNote('note-video', ev)}></button>
                 {/* <button className="fa-todo-list" onClick={(ev) =>this.onCreateNote('note-todos',ev)}>To-Do list</button> */}
             </form>
         </div>

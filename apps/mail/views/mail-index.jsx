@@ -5,8 +5,6 @@ import { FolderList } from '../cmps/mail-folder-list.jsx'
 import { MailDetails } from "../cmps/mail-details.jsx"
 import { MailFilter } from '../cmps/mail-filter.jsx'
 
-
-const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 
 export class MailIndex extends React.Component {

@@ -24,7 +24,7 @@ var gMails = [
         isRead: false,
         sentAt: Date.now(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -34,7 +34,7 @@ var gMails = [
         isRead: false,
         sentAt: Date.now(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -44,7 +44,7 @@ var gMails = [
         isRead: false,
         sentAt: 1551133930594,
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
         //     isStared: true, // (optional property, if missing: show all)
         //     lables: ['important', 'romantic'] // has any of the labels
     },
@@ -56,7 +56,7 @@ var gMails = [
         isRead: false,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -66,7 +66,7 @@ var gMails = [
         isRead: false,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -76,7 +76,7 @@ var gMails = [
         isRead: true,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -86,7 +86,7 @@ var gMails = [
         isRead: false,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -96,7 +96,7 @@ var gMails = [
         isRead: false,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -106,7 +106,7 @@ var gMails = [
         isRead: true,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -116,7 +116,7 @@ var gMails = [
         isRead: true,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -126,7 +126,7 @@ var gMails = [
         isRead: true,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -136,7 +136,7 @@ var gMails = [
         isRead: true,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -146,7 +146,7 @@ var gMails = [
         isRead: true,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -156,7 +156,7 @@ var gMails = [
         isRead: true,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -166,7 +166,7 @@ var gMails = [
         isRead: true,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -176,7 +176,7 @@ var gMails = [
         isRead: true,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -186,7 +186,7 @@ var gMails = [
         isRead: true,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -196,7 +196,7 @@ var gMails = [
         isRead: true,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -206,7 +206,7 @@ var gMails = [
         isRead: true,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
     {
         id: utilService.makeId(),
@@ -216,7 +216,7 @@ var gMails = [
         isRead: true,
         sentAt: _getRandomDate(),
         to: 'momo@momo.com',
-        status: 'inbox/',
+        status: 'inbox',
     },
 ]
 

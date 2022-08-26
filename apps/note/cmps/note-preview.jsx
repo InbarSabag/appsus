@@ -27,7 +27,7 @@ export class NotePreview extends React.Component {
     render() {
         const { note } = this.props
         return <article >
-            <Link to={"/notes/" + note.id}>
+            <Link to={"/note/" + note.id}>
                 <div className="note-head">{note.title}</div>
                 <div className="note-content">
                     <this.DynamicCmp
