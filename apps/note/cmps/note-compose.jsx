@@ -1,5 +1,6 @@
 import { NoteEdit } from './note-edit.jsx'
 
+const { Link } = ReactRouterDOM
 
 export class NoteCompose extends React.Component {
 
@@ -9,7 +10,9 @@ export class NoteCompose extends React.Component {
 
     createNote(type) {
         console.log('🚀 ~ NoteCompose ~ createNote ~ type', type)
-        // <NoteEdit title={this.state.title} type={type} />
+
+        return
+        <NoteEdit title={this.state.title} type={type} />
     }
 
     handleChange = ({ target }) => {
@@ -26,10 +29,26 @@ export class NoteCompose extends React.Component {
         return <div className="new-note">
             <form className="note-form">
                 Add a New Note:
-                <input type="text" placeholder="New Note Title" onChange={this.handleChange} />
-                <button className="fa fa-note" onClick={(ev) => this.onCreateNote('note-txt', ev)}>Text</button>
-                <button className="fa fa-image" onClick={(ev) => this.onCreateNote('note-img', ev)}></button>
-                <button className="fa fa-solid fa-youtube" onClick={(ev) => this.onCreateNote('note-video', ev)}></button>
+
+                <input
+                    type="text"
+                    placeholder="New Note Title"
+                    onChange={this.handleChange}
+                />
+
+                <button
+                    className="fa fa-note"
+                    onClick={(ev) => this.onCreateNote('note-txt', ev)}>Text
+                </button>
+
+                <button className="fa fa-image"
+                    onClick={(ev) => this.onCreateNote('note-img', ev)}>
+
+                </button>
+
+                <Link className="fa fa-solid fa-youtube" to="/note/edit">
+
+                </Link>
                 {/* <button className="fa-todo-list" onClick={(ev) =>this.onCreateNote('note-todos',ev)}>To-Do list</button> */}
             </form>
         </div>

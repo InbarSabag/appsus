@@ -9,7 +9,8 @@ export class MailDetails extends React.Component {
         this.loadMail()
     }
     componentDidUpdate(prevProps, prevState) {
-        if (prevProps.match.param.mailId !== this.props.match.param.mailId) {
+        console.log('prevProps:', prevProps.match)
+        if (prevProps.match.params.mailId !== this.props.match.params.mailId) {
             this.loadMail()
         }
     }
@@ -26,7 +27,6 @@ export class MailDetails extends React.Component {
     }
     onRemoveMail = () => {
         const { mail } = this.state
-        mail.status = '????????'
     }
 
     render() {

@@ -1,11 +1,8 @@
 import { AppHeader } from "./cmps/app-header.jsx"
 import { About } from "./views/about.jsx"
 import { Home } from "./views/home.jsx"
-
 import { MailIndex } from "./apps/mail/views/mail-index.jsx"
-
 import { NoteIndex } from "./apps/note/views/note-index.jsx"
-
 import { UserMsg } from "./cmps/user-msg.jsx"
 
 const Router = ReactRouterDOM.HashRouter
