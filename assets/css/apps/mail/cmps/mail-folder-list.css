@@ -1,0 +1,11 @@
+.btn-compose {
+    min-height: 30px;
+    min-width: 30px;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-image: url('../../../../img/apps/mail/compose.png');
+}
+
+/* .btn-compose::after {
+    content: 'compose';
+} */
