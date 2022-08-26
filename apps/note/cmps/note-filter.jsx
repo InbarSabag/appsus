@@ -42,8 +42,8 @@ export class NotesFilter extends React.Component {
                     onChange={this.handleChange}
                 />
                 <select name="type" id="bt-type" 
-                    value={type} onChange={this.handleChange}>
-                    <option value="">Search by type..</option>
+                    value={type}  onChange={this.handleChange}>
+                    <option value="">All</option>
                     <option value="note-txt">Text</option>
                     <option value="note-img">Image</option>
                     <option value="note-todos">TO-DO list</option>

@@ -91,13 +91,13 @@ function remove(noteId) {
     return Promise.resolve()
 }
 
-function createNote(type, title, info, style){
+function createNote(type, title, info = '' , style =''){
     let notes = _loadFromStorage()
     let note={
         id: utilService.makeId(4),
         isPinned: false,
-        isArchive: false,
-        isRecycleBin: false,
+        // isArchive: false,
+        // isRecycleBin: false,
         type,
         title,
         info,
@@ -105,6 +105,7 @@ function createNote(type, title, info, style){
     }
     notes.unshift(note)
     _saveToStorage(notes)
+    return Promise.resolve(note.id)
 }
 
 // function editNote(noteId ,key, value){

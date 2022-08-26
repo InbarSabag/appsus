@@ -29,11 +29,11 @@
 }
 
 .fa-note::before{
-   content: "\e1ff"; 
+   content: "\f249"; 
 }
 
 .fa-todo-list::before{
-   content: "f03a"; 
+   content: "\f03a"; 
 }
 
 .fa-image::before{

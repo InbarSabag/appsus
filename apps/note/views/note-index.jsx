@@ -3,7 +3,7 @@ import { NoteCompose } from '../cmps/note-compose.jsx'
 import { NoteList } from '../cmps/note-list.jsx'
 import { noteService } from '../services/note.service.js'
 import { LoadingSpinner } from '../../../cmps/spinner.jsx'
-import { NoteDetails } from "./note-details.jsx"
+import { NoteEdit } from '../cmps/note-edit.jsx'
 
 const { Route, Switch } = ReactRouterDOM
 
@@ -34,7 +34,7 @@ export class NoteIndex extends React.Component {
         if (!notes) return <LoadingSpinner />
         return <section className="note-app">
             <NoteCompose />
-            <Route path="/note/:noteId" component={NoteDetails} />
+            <Route path="/note/edit/:noteId" component={NoteEdit} />
             <NotesFilter onSetFilter={this.onSetFilter} />
             <NoteList notes={notes} />
         </section>
