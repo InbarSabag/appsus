@@ -1,9 +1,11 @@
 import { mailService } from '../services/mail.service.js'
 import { MailList } from '../cmps/mail-list.jsx'
-import { LoadingSpinner } from "../../../cmps/spinner.jsx"
-import { FolderList } from '../cmps/mail-folder-list.jsx'
+import { MailFolderList } from '../cmps/mail-folder-list.jsx'
 import { MailDetails } from "../cmps/mail-details.jsx"
+import { LoadingSpinner } from "../../../cmps/spinner.jsx"
+
 import { MailFilter } from '../cmps/mail-filter.jsx'
+import {MailCompose} from '../cmps/mail-compose.jsx'
 
 const { Route, Switch } = ReactRouterDOM
 
@@ -31,25 +33,26 @@ export class MailIndex extends React.Component {
     }
 
 
-
     render() {
         const { mails, filterBy } = this.state
         const { onSetFilter } = this
 
         if (!mails) return <LoadingSpinner />
         return <section className="flex main-layout mail-index">
-                <FolderList />
+            {/* //TODO:Moving MailFilter to  header as dynamic CMP
+            {<MailFilter
+                filterBy={filterBy}
+                onSetFilter={onSetFilter}
+            />} 
+            */}
+            <MailFolderList />
+            <MailList mails={mails} />
+            
+            {/* <Route path="/mail/compose" component={MailCompose} /> */}
+            <Route path="/mail/:mailId" component={MailDetails} />
 
-                <Route path="/mail/:mailId" component={MailDetails} />
 
-                <MailList mails={mails} />
-
-                {<MailFilter
-                    filterBy={filterBy}
-                    onSetFilter={onSetFilter}
-                />}
-                
-                {/* <Switch>
+            {/* <Switch>
                     <Route path="/mail/sent" Component={ } />
                     <Route path="/mail/:mailId" Component={ } />
                     <Route path="/mail/inbox" Component={ } />
@@ -57,6 +60,6 @@ export class MailIndex extends React.Component {
                     <Route path="/mail/trash" Component={ } />
                     <Route path="/mail/compose" Component={ } />
                 </Switch> */}
-            </section>
+        </section>
     }
 }

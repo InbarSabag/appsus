@@ -29,6 +29,7 @@ export class NoteIndex extends React.Component {
         // showSuccessMsg('Filtered Notes')
     }
 
+
     render() {
         const { notes } = this.state
         if (!notes) return <LoadingSpinner />

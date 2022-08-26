@@ -2,7 +2,6 @@ export class MailFilter extends React.Component {
     state = {
         filterBy: {
             txt: '',
-            status: ''
         }
     }
 
@@ -32,7 +31,7 @@ export class MailFilter extends React.Component {
                     id="check-all"
                 />
                 <select
-                    className="select-filter-search-mail"
+                    className="select-filter-mail"
                     name="status"
                     id="status"
                     onChange={this.handleChange}>
