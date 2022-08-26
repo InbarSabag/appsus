@@ -1,11 +1,10 @@
 .note-preview{
-    margin: 10px;
+    margin-bottom: 15px;
     padding:5px;
     width: 300px;
-    /* border: 2px solid rgb(184, 183, 183); */
     border-radius: 10px;
     background-color: rgb(225, 224, 224);
-    box-shadow: 0 0 3px 0 rgb(196, 193, 193) ;
+    box-shadow: 0 0 3px 0 rgb(176, 176, 176) ;
     break-inside: avoid-column;
 }
 
@@ -22,7 +21,6 @@
     font-size: 1.2em;
     font-family: lato-bold;
 }
-
 
 li{
     list-style: none;
