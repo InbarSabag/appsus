@@ -8,12 +8,14 @@ export class MailDetails extends React.Component {
     componentDidMount() {
         this.loadMail()
     }
+
     componentDidUpdate(prevProps, prevState) {
         console.log('prevProps:', prevProps.match)
         if (prevProps.match.params.mailId !== this.props.match.params.mailId) {
             this.loadMail()
         }
     }
+
     loadMail = () => {
         const { mailId } = this.props.match.params
         mailService.getById(mailId)
@@ -22,9 +24,11 @@ export class MailDetails extends React.Component {
                 this.setState({ mail })
             })
     }
+
     onGoBack = () => {
-        this.props.history.push('/mail')
+        this.props.history.push('/mail/index')
     }
+
     onRemoveMail = () => {
         const { mail } = this.state
     }

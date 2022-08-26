@@ -19,10 +19,10 @@
 @import './cmps/spinner.css';
 
 /* Mail Cmps */
+@import './apps/mail/cmps/mail-compose.css';
+@import './apps/mail/cmps/mail-folder-list.css';
 @import './apps/mail/cmps/mail-list.css';
 @import './apps/mail/cmps/mail-preview.css';
-@import './apps/mail/cmps/mail-folder-list.css';
-@import './apps/mail/cmps/mail-compose.css';
 
 /* Note Cmps */
 @import './apps/note/cmps/note-list.css';

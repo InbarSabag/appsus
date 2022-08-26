@@ -4,7 +4,7 @@ import { MailFolderList } from '../cmps/mail-folder-list.jsx'
 import { MailDetails } from "../cmps/mail-details.jsx"
 import { LoadingSpinner } from "../../../cmps/spinner.jsx"
 
-import {MailCompose} from '../cmps/mail-compose.jsx'
+import { MailCompose } from '../cmps/mail-compose.jsx'
 
 const { Route, Switch } = ReactRouterDOM
 
@@ -19,31 +19,39 @@ export class MailIndex extends React.Component {
     }
 
     loadMails = () => {
-        mailService.query()
+        mailService.query(this.state.filterBy)
             .then(mails => this.setState({ mails }))
     }
 
     onSetFilter = (filterBy) => {
         this.setState(prevState =>
             ({ ...prevState, filterBy }), () => {
-                this.loadMails
+                this.loadMails()
             }
         )
     }
-
 
     render() {
         const { mails, filterBy } = this.state
         const { onSetFilter } = this
 
         if (!mails) return <LoadingSpinner />
-        return <section className="flex main-layout mail-index">
+        return <section className="flex mail-index">
 
             <MailFolderList />
-            <MailList mails={mails} />
-            
-            {/* <Route path="/mail/compose" component={MailCompose} /> */}
-            <Route path="/mail/:mailId" component={MailDetails} />
+            <MailList
+                onSetFilter={onSetFilter}
+                filterBy={filterBy}
+                mails={mails}
+            />
+
+            <Switch>
+                <Route path="/mail/compose" component={MailCompose} />
+                <Route path="/mail/:mailId" component={MailDetails} />
+            </Switch>
+
+
+            <Route path="/mail/:status/:mailId" component={MailDetails} />
 
 
             {/* <Switch>
@@ -57,3 +65,4 @@ export class MailIndex extends React.Component {
         </section>
     }
 }
+

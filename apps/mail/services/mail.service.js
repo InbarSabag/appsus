@@ -220,9 +220,21 @@ var gMails = [
     },
 ]
 
-function query() {
+function query(filterBy) {
     let mails = _loadFromStorage()
     if (!mails || !mails.length) mails = _createMails()
+
+    if (filterBy) {
+        let { txt } = filterBy
+        console.log('txt:', txt)
+        if (!txt) txt = ''
+        mails = mails.filter(mail => (
+            mail.subject.toLowerCase().includes(txt.toLowerCase()) ||
+            mail.body.toLowerCase().includes(txt.toLowerCase()) ||
+            mail.from.toLowerCase().includes(txt.toLowerCase()) 
+
+        ))
+    }
     return Promise.resolve(mails)
 }
 
