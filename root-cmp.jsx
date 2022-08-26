@@ -3,7 +3,6 @@ import { About } from "./views/about.jsx"
 import { Home } from "./views/home.jsx"
 
 import { MailIndex } from "./apps/mail/views/mail-index.jsx"
-import { MailDetails } from "./apps/mail/cmps/mail-details.jsx"
 
 import { NoteIndex } from "./apps/note/views/note-index.jsx"
 import { NoteDetails } from "./apps/note/views/note-details.jsx"
@@ -18,10 +17,11 @@ export function App() {
         <section className="app">
             <AppHeader />
             <Switch>
-                <Route path="/mail/:mailId" component={MailDetails} />
                 <Route path="/mail" component={MailIndex} />
+
                 <Route path="/note/:noteId" component={NoteDetails} />
                 <Route path="/note" component={NoteIndex} />
+                
                 <Route path="/about" component={About} />
                 <Route path="/" component={Home} />
             </Switch>

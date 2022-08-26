@@ -1,8 +1,7 @@
 const { Link } = ReactRouterDOM
 
 export function MailPreview({ mail }) {
-    const { id, from, isRead, subject, body, sentAt } = mail
-    const readClass = isRead ? 'read' : 'unread'
+    const readClass = mail.isRead ? 'read' : 'unread'
 
     return <section className={`${readClass} mail-preview flex space-between`} >
         <div>
@@ -14,16 +13,16 @@ export function MailPreview({ mail }) {
                 />
             </span>
             <span> star </span>
-            <span>{from}</span>
+            <span>{mail.from}</span>
         </div>
 
         <div>
-            <Link to={"/mail/" + id}>
-                <span>{subject}</span>
-                <span className='mail-preview-body'> - {body}</span>
+            <Link to={"/mail/" + mail.id}>
+                <span>{mail.subject}</span>
+                <span className='mail-preview-body'> - {mail.body}</span>
             </Link>
         </div>
-        <div>{showTime(sentAt)}</div>
+        <div>{showTime(mail.sentAt)}</div>
     </section>
 }
 
