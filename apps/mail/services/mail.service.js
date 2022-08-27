@@ -3,7 +3,7 @@ import { utilService } from "../../../services/util.service.js"
 
 export const mailService = {
     query,
-    getUser,
+    getLoggedInUser,
     getById,
     getNextMail,
     remove,
@@ -264,9 +264,9 @@ function save(mail) {
     else return _add(mail)
 }
 
-function getUser() {
-    return loggedinUser
-}
+function getLoggedInUser() {
+    return Promise.resolve(loggedinUser)
+  }
 
 function _getRandomDate() {
     const maxDate = Date.now();

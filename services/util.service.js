@@ -6,6 +6,7 @@ export const utilService = {
     padNum,
     getDayName,
     getMonthName,
+    timeToDisplay
 }
 function padNum(num) {
     return (num > 9) ? num + '' : '0' + num
@@ -59,4 +60,12 @@ function getMonthName(date) {
         "July", "August", "September", "October", "November", "December"
     ]
     return monthNames[date.getMonth()]
+}
+
+function timeToDisplay(sentAt) {
+    const diff = Date.now() - sentAt;
+    const day = 24 * 60 * 60 * 1000
+    const date = new Date(sentAt)
+    if (diff < day) return `${date.getHours()}:${date.getMinutes()}`
+    else return `${date.getDate()} ${date.toLocaleString('en', { month: 'short' })}`
 }

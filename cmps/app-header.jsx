@@ -1,14 +1,16 @@
-import {DynamicSearchInput} from '../cmps/dynamic-search-input.jsx'
+import { DynamicSearchInput } from '../cmps/dynamic-search-input.jsx'
 
 const { Link, NavLink, withRouter } = ReactRouterDOM
 
 export function _AppHeader() {
     return <header className="app-header">
         <Link to="/">
-            <h3>LOGO!</h3>
+            <div className="logo">
+                <img src="/assets/img/logo.png" alt=""/>
+            </div>
         </Link>
 
-        <DynamicSearchInput/>
+        {/* <DynamicSearchInput/> */}
         <nav>
             <NavLink exact to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>
