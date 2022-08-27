@@ -1,5 +1,3 @@
-import { DynamicSearchInput } from '../cmps/dynamic-search-input.jsx'
-
 const { Link, NavLink, withRouter } = ReactRouterDOM
 
 export function _AppHeader() {
@@ -20,6 +18,3 @@ export function _AppHeader() {
     </header>
 }
 export const AppHeader = withRouter(_AppHeader)
-
-// ↓  on the header
-{/* <NavLink to="">Mail</NavLink> */ }

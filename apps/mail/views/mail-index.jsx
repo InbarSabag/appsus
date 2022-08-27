@@ -17,13 +17,15 @@ export class MailIndex extends React.Component {
     }
 
     onSetFilter = (filterBy) => {
-        console.log('onSetFilter');
-        console.log('this.state:', this.state)
         const { mails } = this.state
-        console.log('mails:', mails)
         const { txt } = filterBy
-
-        if (!mails || !mails.length) mails = console.log('no mails');
+        if (!mails || !mails.length) mails = console.log('no mails')
+        this.setState((prevState) => ({
+            filterBy: {
+                ...prevState.filterBy,
+                'txt': txt
+            }
+        }), () => { this.loadMails(this.state.filterBy) })
         this.loadMails(this.state.filterBy)
     }
 
@@ -32,26 +34,21 @@ export class MailIndex extends React.Component {
         this.loadMails()
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     // const { folder } = this.state.filterBy.folder ↓ papram
-
-    //     if (prevProps.match.params.folder !== this.props.match.params.folder) {
-    //         // this.setState((prevState) => ({
-    //         //     filterBy: {
-    //         //         ...prevState.filterBy,
-    //         //         [folder]: value
-    //         //     }
-    //         // }))
-
-
-
-    //         this.loadMails(this.state.filterBy)
-    //     }
-
-    // }
+    componentDidUpdate(prevProps, prevState) {
+        const { folder } = this.props.match.params.folder
+        if (prevProps.match.params.folder !== this.props.match.params.folder) {
+            this.setState((prevState) => ({
+                filterBy: {
+                    ...prevState.filterBy,
+                    [folder]: value
+                }
+            }))
+            this.loadMails(this.state.filterBy)
+        }
+    }
 
     loadMails = () => {
-        mailService.query()
+        mailService.query(this.state.filterBy)
             .then(mails => this.setState({ mails }))
     }
 

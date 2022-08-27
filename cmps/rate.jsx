@@ -16,8 +16,8 @@ export class Rate extends React.Component {
 
     render() {
         const { hover } = this.state
-        const {email} = this.props
-        const isStarred = (email.status === 'starred') ? true : false
+        const {mail} = this.props
+        const isStarred = (mail.isStar) ? true : false
 
         return <div className="star-rating">
             {[...Array(1)].map((star, idx) => {
@@ -27,7 +27,7 @@ export class Rate extends React.Component {
                         type="button"
                         key={idx}
                         className={idx <= (hover || isStarred) ? "btn-rate on" : "btn-rate off"}
-                        onClick={() => this.setRating(email.id)}
+                        onClick={() => this.setRating(mail.id)}
                         onMouseEnter={() => this.setHover(idx)}
                         onMouseLeave={() => this.setHover(null)}
                     >

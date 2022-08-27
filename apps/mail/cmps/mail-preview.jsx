@@ -7,15 +7,18 @@ export function MailPreview({ mail }) {
 
     return <section
         className={`${readClass} flex space-between  mail-preview`} >
-        <div>
+        <div className="flex space-between"
+        >
             <input className='btns-checkbox'
                 type="checkbox"
                 name="selected-mail"
                 id="selected-mail"
             />
 
-            {/* <Rate/>  */}
-            <span> star </span>
+            <span> <Rate
+                // setStar={onSetStar}
+                mail={mail} />
+            </span>
 
             <span>{mail.from}</span>
         </div>
@@ -70,7 +73,7 @@ function showTime(sentAt) {
 //                         id="selected-mail"
 //                     />
 
-//                     <span><Rate setStar={onSetStar} email={mail} /> </span>
+//                     <span><Rate email={mail} /> </span>
 
 //                     <span>{mail.from}</span>
 //                 </td>

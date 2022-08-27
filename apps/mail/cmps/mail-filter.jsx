@@ -1,12 +1,13 @@
 export class MailFilter extends React.Component {
     state = {
-        
         filterBy: {
             txt: '',
             folder: '',
         }
     }
-
+componentDidMount(){
+    console.log('MailFilter didMount')
+}
     handleChange = ({ target }) => {
         const field = target.name
         const value = target.value
@@ -18,20 +19,24 @@ export class MailFilter extends React.Component {
         }), () => { this.props.onSetFilter(this.state.filterBy) })
     }
 
+    onFilter = (ev) => {
+        ev.preventDefault()
+        this.props.onSetFilter(this.state.filterBy)
+    }
+
     render() {
         const { txt } = this.state
         return (
             <section className="mail-filter">
                 <div className="flex space-between">
-
-                    <form
+                    <form onSubmit={this.onFilter}
                         id="mail-filter"
-                        className="form">
-                        {/* <input
+                        className="form-search-mail">
+                        <input
                             name="check-all"
                             type="checkbox"
                             id="check-all"
-                        /> */}
+                        />
 
                         <input
                             type="search"
@@ -43,7 +48,7 @@ export class MailFilter extends React.Component {
                             onChange={this.handleChange}
                         />
 
-                        {/* <select
+                        <select
                             className="select-filter-mail"
                             name="status"
                             id="status"
@@ -55,11 +60,10 @@ export class MailFilter extends React.Component {
                             <option value="sent">Sent</option>
                             <option value="draft">Draft</option>
                             <option value="favorite">Favorite</option>
-                        </select> */}
+                        </select>
                     </form>
                 </div>
             </section>
         )
     }
 }
-
