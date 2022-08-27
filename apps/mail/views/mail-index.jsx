@@ -52,6 +52,15 @@ export class MailIndex extends React.Component {
             .then(mails => this.setState({ mails }))
     }
 
+    onSetStar = (mailId) => {
+        mailService.setMailStar(mailId)
+            .then(() => {
+                const { mails } = this.state
+                const mailIdx = mails.findIndex(email => email.id === mailId)
+                mails[mailIdx].status = (mails[mailIdx].isStar) ? null : 'starred'
+            })
+    }
+
     render() {
         console.log('MailIndex render:')
         const { mails, filterBy } = this.state
@@ -62,19 +71,20 @@ export class MailIndex extends React.Component {
         return <div className="flex mail-index">
 
             <MailFolderList />
-            <MailList
+            <Route path="/mail/compose" component={MailCompose} />
+            <Switch>
+                <Route path="/mail/:folder/:mailId" component={MailDetails} />
+                <MailList
                 currFolder={this.props.match.params.folder}
                 mails={mails}
                 filterBy={filterBy}
                 onSetFilter={onSetFilter}
             />
-            <Switch>
-                <Route path="/mail/compose" component={MailCompose} />
-                {/* <Route path="/mail/:folder/:mailId" component={MailDetails} /> */}
             </Switch>
 
             {/* <Route path="/mail/:mailId" component={MailDetails} /> */}
 
         </div>
     }
+
 }

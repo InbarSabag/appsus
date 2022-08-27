@@ -1,3 +1,4 @@
+import { LoadingSpinner } from "../../../cmps/spinner.jsx"
 import { mailService } from "../services/mail.service.js"
 
 export class MailDetails extends React.Component {
@@ -32,13 +33,15 @@ export class MailDetails extends React.Component {
 
     render() {
         const { mail } = this.state
-        console.log('mail:', mail)
-        return <section className="mail-details">
-            {/* <h2>{mail.from}</h2> */}
-            {/* <h3>{mail.body}</h3> */}
-            <div className="control-btns">
-
+        if (!mail) return <LoadingSpinner/>
+        return <section className="flex mail-details">
+            <div className="mail-card">
+                <h2>{mail.from}</h2>
+                <h3>{mail.subject}</h3>
+                <p>{mail.body}</p>
             </div>
+
+
             {/* // <link to={`/mail/${nextMailId}`} */}
         </section>
     }
