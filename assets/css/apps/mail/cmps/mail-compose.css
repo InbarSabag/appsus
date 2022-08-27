@@ -1,8 +1,27 @@
-.mail-compose{
+.mail-compose {
     position: fixed;
     background-color: whitesmoke;
-    height: 400px;
-    width: 500px;
+    height: 40vh;
+    width: 40VW;
+    min-width: 400PX;
     bottom: 0;
     right: 0;
+    box-shadow: -5px 6px 20px -4px rgba(0, 0, 0, 0.75);
+}
+
+.compose-header {
+    font-weight: bold;
+    padding: 5px;
+    background-color: rgb(232, 242, 250);
+}
+
+.btn-send {
+    cursor: pointer;
+    color: whitesmoke;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 40px;
+    padding: 10px;
+    background-color: hsl(217, 77%, 46%);
 }

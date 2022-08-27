@@ -40,7 +40,7 @@ export class MailIndex extends React.Component {
             this.setState((prevState) => ({
                 filterBy: {
                     ...prevState.filterBy,
-                    [folder]: value
+                    [folder]: folder
                 }
             }))
             this.loadMails(this.state.filterBy)
