@@ -1,8 +1,9 @@
 export class MailFilter extends React.Component {
     state = {
+        
         filterBy: {
             txt: '',
-            status: '',
+            folder: '',
         }
     }
 
@@ -15,30 +16,25 @@ export class MailFilter extends React.Component {
                 [field]: value
             }
         }), () => { this.props.onSetFilter(this.state.filterBy) })
-
-
     }
-
-    // onSetFilter = (filterBy) => {
-    //     this.setState({ filterBy }, () => {
-    //         this.loadMails()
-    //     })
-    // }
 
     render() {
         const { txt } = this.state
         return (
             <section className="mail-filter">
                 <div className="flex space-between">
-                    <form className="form">
-                        <input
+
+                    <form
+                        id="mail-filter"
+                        className="form">
+                        {/* <input
                             name="check-all"
                             type="checkbox"
                             id="check-all"
-                        />
+                        /> */}
 
                         <input
-                            type="text"
+                            type="search"
                             placeholder="Search Mail..."
                             id="txt"
                             name="txt"
@@ -47,7 +43,7 @@ export class MailFilter extends React.Component {
                             onChange={this.handleChange}
                         />
 
-                        <select
+                        {/* <select
                             className="select-filter-mail"
                             name="status"
                             id="status"
@@ -59,10 +55,11 @@ export class MailFilter extends React.Component {
                             <option value="sent">Sent</option>
                             <option value="draft">Draft</option>
                             <option value="favorite">Favorite</option>
-                        </select>
+                        </select> */}
                     </form>
                 </div>
             </section>
         )
     }
 }
+

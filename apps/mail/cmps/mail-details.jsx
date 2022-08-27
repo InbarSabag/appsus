@@ -10,9 +10,10 @@ export class MailDetails extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log('prevProps:', prevProps.match)
-        if (prevProps.match.params.mailId !== this.props.match.params.mailId) {
-            this.loadMail()
+        console.log('prevProps:', prevProps)
+        console.log('prevState:', prevState)
+        if (prevProps.match.params.folder !== this.props.match.params.folder) {
+
         }
     }
 
@@ -29,14 +30,15 @@ export class MailDetails extends React.Component {
         this.props.history.push('/mail/index')
     }
 
-    onRemoveMail = () => {
-        const { mail } = this.state
-    }
-
     render() {
+        const { mail } = this.state
+        console.log('mail:', mail)
         return <section className="mail-details">
+            {/* <h2>{mail.from}</h2> */}
+            {/* <h3>{mail.body}</h3> */}
+            <div className="control-btns">
 
-
+            </div>
             {/* // <link to={`/mail/${nextMailId}`} */}
         </section>
     }

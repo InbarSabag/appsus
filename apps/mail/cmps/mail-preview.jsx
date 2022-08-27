@@ -1,14 +1,12 @@
+import { Rate } from '../../../cmps/rate.jsx'
 const { Link } = ReactRouterDOM
 
 export function MailPreview({ mail }) {
-    // state = {
-    //     status: null,
-    //     filterBy: null,
-    // }
 
     const readClass = mail.isRead ? 'read' : 'unread'
 
-    return <section className={`${readClass} flex space-between  mail-preview`} >
+    return <section
+        className={`${readClass} flex space-between  mail-preview`} >
         <div>
             <input className='btns-checkbox'
                 type="checkbox"
@@ -16,13 +14,17 @@ export function MailPreview({ mail }) {
                 id="selected-mail"
             />
 
+            {/* <Rate/>  */}
             <span> star </span>
 
             <span>{mail.from}</span>
         </div>
-        
+
         <div>
-            <Link className="mail-content-container" to={"/mail/" + mail.id}>
+            <Link
+                to={"/mail/inbox/" + mail.id}
+                className="mail-content-container"
+            >
                 <span>{mail.subject}</span>
                 <span className='mail-preview-body'> - {mail.body}</span>
             </Link>

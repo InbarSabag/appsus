@@ -4,13 +4,13 @@ const { Link, NavLink, withRouter } = ReactRouterDOM
 
 export function _AppHeader() {
     return <header className="app-header">
+       
         <Link to="/">
             <div className="logo">
-                <img src="/assets/img/logo.png" alt=""/>
+                <img src="/assets/img/logo.png" alt="logo"/>
             </div>
         </Link>
 
-        {/* <DynamicSearchInput/> */}
         <nav>
             <NavLink exact to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>

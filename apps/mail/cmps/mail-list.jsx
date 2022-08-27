@@ -1,21 +1,19 @@
 import { MailPreview } from './mail-preview.jsx'
 import { MailFilter } from '../cmps/mail-filter.jsx'
 
-export function MailList({ mails, filterBy,onSetFilter }) {
-    return <ul>
-        <li>
-            {<MailFilter
-                filterBy={filterBy}
-                onSetFilter={onSetFilter}
-            />}
-        </li>
+export function MailList({ mails, filterBy, onSetFilter, currFolder }) {
+    return <section>
+        {<MailFilter
+            filterBy={filterBy}
+            onSetFilter={onSetFilter}
+        />}
 
-        
-            {mails.map(mail => <MailPreview
-                mail={mail}
-                key={mail.id}
-            />)}
-    </ul>
+        {mails.map(mail => <MailPreview
+            folder={currFolder}
+            mail={mail}
+            key={mail.id}
+        />)}
+    </section>
 }
 
 

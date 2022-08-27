@@ -3,9 +3,13 @@ const { NavLink } = ReactRouterDOM
 export function MailFolderList() {
 
     return <section className="folder-list flex column">
-        <NavLink className="flex space-between" to="/mail/compose">
-            <div className="btn btn-compose"></div> 
-            <div>compose</div>
+
+        <NavLink
+            to="/mail/compose"
+            className="flex space-between"
+        >
+            <div className="btn btn-compose"></div>
+            <span>compose</span>
         </NavLink>
 
         <NavLink to="/mail/inbox">
