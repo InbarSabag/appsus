@@ -2,10 +2,12 @@ export class MailFilter extends React.Component {
     state = {
         filterBy: {
             txt: '',
-            status: '',
+            folder: '',
         }
     }
-
+componentDidMount(){
+    console.log('MailFilter didMount')
+}
     handleChange = ({ target }) => {
         const field = target.name
         const value = target.value
@@ -15,22 +17,21 @@ export class MailFilter extends React.Component {
                 [field]: value
             }
         }), () => { this.props.onSetFilter(this.state.filterBy) })
-
-
     }
 
-    // onSetFilter = (filterBy) => {
-    //     this.setState({ filterBy }, () => {
-    //         this.loadMails()
-    //     })
-    // }
+    onFilter = (ev) => {
+        ev.preventDefault()
+        this.props.onSetFilter(this.state.filterBy)
+    }
 
     render() {
         const { txt } = this.state
         return (
             <section className="mail-filter">
                 <div className="flex space-between">
-                    <form className="form">
+                    <form onSubmit={this.onFilter}
+                        id="mail-filter"
+                        className="form-search-mail">
                         <input
                             name="check-all"
                             type="checkbox"
@@ -38,7 +39,7 @@ export class MailFilter extends React.Component {
                         />
 
                         <input
-                            type="text"
+                            type="search"
                             placeholder="Search Mail..."
                             id="txt"
                             name="txt"

@@ -1,3 +1,4 @@
+import { LoadingSpinner } from "../../../cmps/spinner.jsx"
 import { mailService } from "../services/mail.service.js"
 
 export class MailDetails extends React.Component {
@@ -10,9 +11,10 @@ export class MailDetails extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log('prevProps:', prevProps.match)
-        if (prevProps.match.params.mailId !== this.props.match.params.mailId) {
-            this.loadMail()
+        console.log('prevProps:', prevProps)
+        console.log('prevState:', prevState)
+        if (prevProps.match.params.folder !== this.props.match.params.folder) {
+
         }
     }
 
@@ -29,12 +31,15 @@ export class MailDetails extends React.Component {
         this.props.history.push('/mail/index')
     }
 
-    onRemoveMail = () => {
-        const { mail } = this.state
-    }
-
     render() {
-        return <section className="mail-details">
+        const { mail } = this.state
+        if (!mail) return <LoadingSpinner/>
+        return <section className="flex mail-details">
+            <div className="mail-card">
+                <h2>{mail.from}</h2>
+                <h3>{mail.subject}</h3>
+                <p>{mail.body}</p>
+            </div>
 
 
             {/* // <link to={`/mail/${nextMailId}`} */}
