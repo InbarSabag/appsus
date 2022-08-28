@@ -1,15 +1,8 @@
 
 const { Link } = ReactRouterDOM
 
-// export function NotePreview ({note}) {
-export class NotePreview extends React.Component {
-    // state={
-    //     noteType: this.props.note.type
-    // }
 
-    // componentDidMount(){
-    //     console.log(this)
-    // }
+export class NotePreview extends React.Component {
 
     DynamicCmp = (props) => {
         switch (props.type) {
@@ -19,15 +12,14 @@ export class NotePreview extends React.Component {
                 return <NoteImg{...props} />
             case 'note-todos':
                 return <NoteTodos{...props} />
-            // case 'note-video':
-            //     return <NoteVideo{...props} />
+            case 'note-video':
+                return <NoteVideo{...props} />
         }
     }
 
     render() {
         const { note } = this.props
         return <article >
-            <Link to={"/note/" + note.id}>
                 <div className="note-head">{note.title}</div>
                 <div className="note-content">
                     <this.DynamicCmp
@@ -35,6 +27,7 @@ export class NotePreview extends React.Component {
                         type={note.type}
                     />
                 </div>
+            <Link to={"/note/edit/"+ note.id}>
                 <div className="note-bottom">Edit</div>
             </Link>
         </article >
@@ -56,16 +49,16 @@ export class NoteImg extends React.Component {
     }
 }
 
-// export class NoteVideo extends React.Component {
-//     render() {
-//         const { info } = this.props
-//         return <iframe
-//             width="560"
-//             height="315"
-//             src={info.url + "autoplay=1&mute=1"} >
-//         </iframe>
-//     }
-// }
+export class NoteVideo extends React.Component {
+    render() {
+        const { info } = this.props
+        return <iframe
+            width="560"
+            height="315"
+            src={info.url + "autoplay=1&mute=1"} >
+        </iframe>
+    }
+}
 
 export class NoteTodos extends React.Component {
     render() {

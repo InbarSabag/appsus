@@ -5,8 +5,9 @@ export const noteService = {
     query,
     getById,
     remove,
-    createNote,
+    getById,
     getNoteIdx,
+    // createNote,
     // archiveNote,
     // recycleBinNote
 }
@@ -91,21 +92,11 @@ function remove(noteId) {
     return Promise.resolve()
 }
 
-function createNote(type, title, info = '' , style =''){
-    let notes = _loadFromStorage()
-    let note={
-        id: utilService.makeId(4),
-        isPinned: false,
-        // isArchive: false,
-        // isRecycleBin: false,
-        type,
-        title,
-        info,
-        style
-    }
-    notes.unshift(note)
-    _saveToStorage(notes)
-    return Promise.resolve(note.id)
+
+
+function save(note) {
+    if(note.id) return _update(note)
+    else return _add(note)
 }
 
 // function editNote(noteId ,key, value){
@@ -131,6 +122,36 @@ function createNote(type, title, info = '' , style =''){
 function _createNotes() {
     _saveToStorage(gNotes)
     return gNotes
+}
+
+function _add({ type, title, info, style = {} }) {
+    let notes = _loadFromStorage()
+    const note = _createNote(type, title, info, style)
+    notes = [note, ...notes]
+    _saveToStorage(notes)
+    return Promise.resolve(note)
+}
+
+function _createNote(type, title, info = {} , style ={}){
+    let notes = _loadFromStorage()
+    let note={
+        id: utilService.makeId(4),
+        isPinned: false,
+        type,
+        title,
+        info,
+        style
+    }
+    notes.unshift(note)
+    _saveToStorage(notes)
+    return Promise.resolve(note.id)
+}
+
+function _update(noteToUpdate) {
+    let notes = _loadFromStorage()
+    notes = notes.map(note => note.id === noteToUpdate.id ? noteToUpdate : note)
+    _saveToStorage(notes)
+    return Promise.resolve(noteToUpdate)
 }
 
 function _loadFromStorage() {

@@ -1,11 +1,10 @@
 import { NotesFilter } from '../cmps/note-filter.jsx'
-import { NoteCompose } from '../cmps/note-compose.jsx'
 import { NoteList } from '../cmps/note-list.jsx'
 import { noteService } from '../services/note.service.js'
 import { LoadingSpinner } from '../../../cmps/spinner.jsx'
 import { NoteEdit } from '../cmps/note-edit.jsx'
 
-const { Route, Switch } = ReactRouterDOM
+const { Link } = ReactRouterDOM
 
 export class NoteIndex extends React.Component {
 
@@ -13,7 +12,6 @@ export class NoteIndex extends React.Component {
         notes: [],
         filterBy: null
     }
-
 
     componentDidMount() {
         this.loadNotes()
@@ -34,8 +32,7 @@ export class NoteIndex extends React.Component {
         const { notes } = this.state
         if (!notes) return <LoadingSpinner />
         return <section className="note-app">
-            <NoteCompose />
-            <Route path="/note/edit/:noteId" component={NoteEdit} />
+            <Link to="/note/edit"><button>New Note</button></Link>
             <NotesFilter onSetFilter={this.onSetFilter} />
             <NoteList notes={notes} />
         </section>

@@ -14,11 +14,11 @@ export class _NoteCompose extends React.Component {
 
     createNote(type) {
         console.log('note type - ', type, 'note title -',this.state.title)
-        // noteService.createNote(type, this.state.title)
-            // .then((id) => {
-                // console.log(id,this)
-                // this.props.push.history(`/note/edit/:${id}`)
-            // })
+        noteService.createNote(type, this.state.title)
+            .then((id) => {
+                console.log(id,this)
+                this.props.push.history(`/note/edit/:${id}`)
+            })
     }
 
     handleChange = ({ target }) => {
