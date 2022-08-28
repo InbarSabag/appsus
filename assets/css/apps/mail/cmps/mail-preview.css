@@ -1,5 +1,5 @@
 .mail-preview {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     border-bottom: 1px solid #eceff1;
     box-shadow: inset 0 -1px 0 0 rgb(100 121 143 / 12%);
     padding: 10px;
@@ -15,14 +15,18 @@
 
 .mail-content-container {
     max-width: 70%;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important; 
+    overflow-x: hidden !important;
 }
 
 .mail-preview-body {
     font-weight: lighter;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow-x: hidden;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important; 
+    overflow-x: hidden !important;
     max-width: 100px;
 }
 

@@ -7,6 +7,7 @@ export const mailService = {
     getById,
     getNextMail,
     remove,
+    saveMailUpdate,
 }
 
 const KEY = 'mailsDB'
@@ -323,11 +324,16 @@ function query(filterBy) {
         mails = mails.filter(mail => (
             mail.subject.toLowerCase().includes(txt.toLowerCase()) ||
             mail.body.toLowerCase().includes(txt.toLowerCase()) ||
-            mail.from.toLowerCase().includes(txt.toLowerCase()) 
+            mail.from.toLowerCase().includes(txt.toLowerCase())
 
         ))
     }
     return Promise.resolve(mails)
+}
+
+function saveMailUpdate(mailId, key, value) {
+    const mailIdx = gMails.findIndex(mail => mail.id === mailId)
+    gMails[mailIdx][key] = value
 }
 
 function getById(mailId) {

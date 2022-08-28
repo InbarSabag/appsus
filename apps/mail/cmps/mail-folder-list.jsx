@@ -8,7 +8,8 @@ export function MailFolderList() {
             to="/mail/compose"
             className="flex space-between"
         >
-            <div className="btn btn-compose"></div>
+            <div className="btn btn-compose">
+            </div>
             <span>compose</span>
         </NavLink>
 

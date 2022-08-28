@@ -12,9 +12,15 @@ export function _AppHeader() {
         <nav>
             <NavLink exact to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>
-            <NavLink to="/mail/inbox">Mail</NavLink>
+            <NavLink 
+             className={() => console.log('I am called every route change...')}
+            to="/mail/inbox">Mail</NavLink>
             <NavLink to="/note">Note</NavLink>
         </nav>
     </header>
 }
 export const AppHeader = withRouter(_AppHeader)
+
+// let anchorRef = React.createRef()
+
+// <Link to="/" innerRef={anchorRef} />

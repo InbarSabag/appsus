@@ -32,7 +32,7 @@ export class MailCompose extends React.Component {
                 type="text" />
             <input
                 name="compose-body"
-                type="textarea" />
+                type="text" />
 
             <div className="flex from-btns-container">
                 <div className="btn btn-send">

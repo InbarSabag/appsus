@@ -52,6 +52,14 @@ export class MailIndex extends React.Component {
             .then(mails => this.setState({ mails }))
     }
 
+    onToggleIsRead = (mail, mailId) => {
+        mail.isRead = !mail.isRead
+        let { mails } = this.state
+        // const mailIdx = mails.findIndex(mail => mail.id === mailId)
+        this.setState({ mails }) //?mails[mailIdx]
+        mailService.saveMailUpdate(mailId)
+    }
+
     onSetStar = (mailId) => {
         mailService.setMailStar(mailId)
             .then(() => {
@@ -75,16 +83,15 @@ export class MailIndex extends React.Component {
             <Switch>
                 <Route path="/mail/:folder/:mailId" component={MailDetails} />
                 <MailList
-                currFolder={this.props.match.params.folder}
-                mails={mails}
-                filterBy={filterBy}
-                onSetFilter={onSetFilter}
-            />
+                    currFolder={this.props.match.params.folder}
+                    mails={mails}
+                    filterBy={filterBy}
+                    onSetFilter={onSetFilter}
+                />
             </Switch>
 
             {/* <Route path="/mail/:mailId" component={MailDetails} /> */}
 
         </div>
     }
-
 }
